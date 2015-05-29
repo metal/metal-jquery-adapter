@@ -25,7 +25,7 @@ var JQueryPlugin = {
     }
 
     $.fn[name] = function(configOrMethodName) {
-      handlePluginCall(name, Ctor, this, configOrMethodName);
+      return handlePluginCall(name, Ctor, this, configOrMethodName);
     };
   }
 };
@@ -62,13 +62,14 @@ function createOrUpdateInstance(name, Ctor, element, config) {
  * as its config object.
  */
 function handlePluginCall(name, Ctor, collection, configOrMethodName) {
-  collection.each(function() {
-    if (core.isString(configOrMethodName)) {
+  if (core.isString(configOrMethodName)) {
 
-    } else {
+  } else {
+    collection.each(function() {
       createOrUpdateInstance(name, Ctor, $(this), configOrMethodName);
-    }
-  });
+    });
+  }
+  return collection;
 }
 
 export default JQueryPlugin;

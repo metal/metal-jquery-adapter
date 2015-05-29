@@ -101,6 +101,17 @@ describe('JQueryPlugin', function() {
     var instance = $(element).data('metal-testComp');
     assert.strictEqual('bar', instance.foo);
   });
+
+  it('should return collection from plugin call when creating or updating instance', function() {
+    var TestComponent = createComponentClass();
+    JQueryPlugin.register('testComp', TestComponent);
+
+    var element = document.createElement('div');
+    dom.enterDocument(element);
+    var collection = $(element);
+
+    assert.strictEqual(collection, collection.testComp());
+  });
 });
 
 function createComponentClass() {
