@@ -13,21 +13,21 @@ var JQueryPlugin = {
    * @param {string} name The name of the plugin that should be registered.
    * @param {!Function(Object)} Ctor The constructor of the Metal.js component.
    */
-	register(name, Ctor) {
-		if (!$) {
-			throw new Error('jQuery needs to be included in the page for JQueryPlugin to work.');
-		}
-		if (!core.isString(name)) {
-			throw new Error('The name string is required for registering a plugin');
-		}
-		if (!core.isFunction(Ctor)) {
-			throw new Error('The constructor function is required for registering a plugin');
-		}
+  register(name, Ctor) {
+    if (!$) {
+      throw new Error('jQuery needs to be included in the page for JQueryPlugin to work.');
+    }
+    if (!core.isString(name)) {
+      throw new Error('The name string is required for registering a plugin');
+    }
+    if (!core.isFunction(Ctor)) {
+      throw new Error('The constructor function is required for registering a plugin');
+    }
 
-		$.fn[name] = function(configOrMethodName) {
-			handlePluginCall(name, Ctor, this, configOrMethodName);
-		};
-	}
+    $.fn[name] = function(configOrMethodName) {
+      handlePluginCall(name, Ctor, this, configOrMethodName);
+    };
+  }
 };
 
 /**
@@ -41,7 +41,9 @@ var JQueryPlugin = {
 function createOrUpdateInstance(name, Ctor, element, config) {
   var fullName = 'metal-' + name;
   var instance = element.data(fullName);
-  config = $.extend({}, config, {element: element[0]});
+  config = $.extend({}, config, {
+    element: element[0]
+  });
   if (instance) {
     instance.setAttrs(config);
   } else {
@@ -60,13 +62,13 @@ function createOrUpdateInstance(name, Ctor, element, config) {
  * as its config object.
  */
 function handlePluginCall(name, Ctor, collection, configOrMethodName) {
-	collection.each(function() {
-		if (core.isString(configOrMethodName)) {
+  collection.each(function() {
+    if (core.isString(configOrMethodName)) {
 
-		} else {
-			createOrUpdateInstance(name, Ctor, $(this), configOrMethodName);
-		}
-	});
+    } else {
+      createOrUpdateInstance(name, Ctor, $(this), configOrMethodName);
+    }
+  });
 }
 
 export default JQueryPlugin;
