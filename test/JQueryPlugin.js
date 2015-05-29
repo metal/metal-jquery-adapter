@@ -1,4 +1,4 @@
-'use strict'
+'use strict';
 
 import dom from 'bower:metaljs/src/dom/dom';
 import Component from 'bower:metaljs/src/component/Component';
@@ -42,7 +42,7 @@ describe('JQueryPlugin', function() {
 
     var instance = $(element).data('metal-testComp');
     assert.ok(instance instanceof TestComponent);
-    assert.strictEqual(element, instance.element)
+    assert.strictEqual(element, instance.element);
   });
 
   it('should instantiate components for each element in the collection', function() {

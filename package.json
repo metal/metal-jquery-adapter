@@ -14,7 +14,9 @@
   "devDependencies": {
     "chai": "^2.3.0",
     "gulp": "^3.8.11",
+    "gulp-jshint": "^1.11.0",
     "isparta": "^3.0.3",
+    "jshint-stylish": "^2.0.0",
     "karma": "^0.12.33",
     "karma-babel-preprocessor": "^5.2.1",
     "karma-chai": "^0.1.0",
