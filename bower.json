@@ -9,7 +9,7 @@
     "modal"
   ],
   "dependencies": {
-    "metaljs": "liferay/metal#master",
+    "metaljs": "mairatma/metal#events",
     "jquery": "~2.1.4"
   }
 }

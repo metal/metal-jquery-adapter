@@ -68,7 +68,9 @@ function createOrUpdateInstance(name, Ctor, element, config) {
   if (instance) {
     instance.setAttrs(config);
   } else {
-    element.data(fullName, new Ctor(config).render());
+    instance = new Ctor(config).render();
+    instance.on('*', onMetalEvent.bind(null, name, element));
+    element.data(fullName, instance);
   }
 }
 
@@ -114,6 +116,21 @@ function isValidMethod(instance, methodName) {
   return core.isFunction(instance[methodName]) &&
     methodName[0] !== '_' &&
     methodName[methodName.length - 1] !== '_';
+}
+
+/**
+ * Called when an event is triggered on a Metal component that has been registered
+ * as a jQuery plugin. Triggers a similar event on the jQuery element tied to the
+ * plugin.
+ * @param {string} name The name of the plugin.
+ * @param {!jQuery} element A jQuery collection with a single element.
+ * @param {string} eventType The name of the Metal.js event type.
+ * @param {*} eventData Event data that was passed to the listener of the Metal.js
+ *   event.
+ */
+function onMetalEvent(name, element, eventType, eventData) {
+  var fullName = getPluginFullName(name);
+  element.trigger(fullName + ':' + eventType, eventData);
 }
 
 export default JQueryPlugin;

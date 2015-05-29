@@ -185,6 +185,26 @@ describe('JQueryPlugin', function() {
       $(element).testComp('_bar');
     });
   });
+
+  it('should trigger events from component for the plugin element', function() {
+    var TestComponent = createComponentClass();
+    JQueryPlugin.register('testComp', TestComponent);
+
+    var element = document.createElement('div');
+    dom.enterDocument(element);
+    var $element = $(element);
+    $element.testComp();
+
+    var listener = sinon.stub();
+    $element.on('metal-testComp:foo', listener);
+    var instance = $(element).data('metal-testComp');
+    var eventData = {};
+    instance.emit('foo', eventData);
+
+    assert.strictEqual(1, listener.callCount);
+    assert.ok(listener.args[0][0] instanceof $.Event);
+    assert.strictEqual(eventData, listener.args[0][1]);
+  });
 });
 
 function createComponentClass() {
