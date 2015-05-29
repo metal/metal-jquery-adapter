@@ -1,0 +1,15 @@
+{
+  "name": "metal-jquery-plugin",
+  "version": "0.0.1",
+  "main": "src/JQueryPlugin.js",
+  "description": "A module that can create jQuery plugins for Metal.js components.",
+  "keywords": [
+    "jquery",
+    "metaljs",
+    "modal"
+  ],
+  "dependencies": {
+    "metaljs": "liferay/metal#master",
+    "jquery": "~2.1.4"
+  }
+}
