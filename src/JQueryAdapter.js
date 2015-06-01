@@ -7,7 +7,7 @@ import core from 'bower:metaljs/src/core';
  * be used as jQuery plugins.
  * @type {Object}
  */
-var JQueryPlugin = {
+var JQueryAdapter = {
   /**
    * Registers a Metal.js component as a jQuery plugin with the given name.
    * @param {string} name The name of the plugin that should be registered.
@@ -15,7 +15,7 @@ var JQueryPlugin = {
    */
   register(name, Ctor) {
     if (!$) {
-      throw new Error('jQuery needs to be included in the page for JQueryPlugin to work.');
+      throw new Error('jQuery needs to be included in the page for JQueryAdapter to work.');
     }
     if (!core.isString(name)) {
       throw new Error('The name string is required for registering a plugin');
@@ -133,4 +133,4 @@ function onMetalEvent(name, element, eventType, eventData) {
   element.trigger(fullName + ':' + eventType, eventData);
 }
 
-export default JQueryPlugin;
+export default JQueryAdapter;

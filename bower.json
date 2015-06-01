@@ -1,12 +1,12 @@
 {
-  "name": "metal-jquery-plugin",
+  "name": "metal-jquery-adapter",
   "version": "0.0.1",
   "main": "src/JQueryPlugin.js",
   "description": "A module that can create jQuery plugins for Metal.js components.",
   "keywords": [
     "jquery",
     "metaljs",
-    "modal"
+    "plugin"
   ],
   "dependencies": {
     "metaljs": "mairatma/metal#events",

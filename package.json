@@ -1,5 +1,5 @@
 {
-  "name": "metal-jquery-plugin",
+  "name": "metal-jquery-adapter",
   "version": "0.0.1",
   "description": "A module that can create jQuery plugins for Metal.js components.",
   "keywords": [
@@ -7,7 +7,7 @@
     "metaljs",
     "plugin"
   ],
-  "repository": "mairatma/metal-jquery-plugin",
+  "repository": "mairatma/metal-jquery-adapter",
   "dependencies": {
     "metaljs": "liferay/metal#master"
   },

@@ -5,7 +5,7 @@ var gulp = require('gulp');
 var jshint = require('gulp-jshint');
 
 require('metaljs')({
-  bundleFileName: 'jquery-plugin.js'
+  bundleFileName: 'jquery-adapter.js'
 });
 
 var codeFileGlobs = ['src/**/*.js', 'test/**/*.js', 'gulpfile.js'];
