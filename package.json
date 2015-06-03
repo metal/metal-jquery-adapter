@@ -5,7 +5,6 @@
   "keywords": [
     "jquery",
     "metal",
-    "metaljs",
     "plugin"
   ],
   "repository": "metal/metal-jquery-adapter",
@@ -24,8 +23,8 @@
     "karma-mocha": "^0.1.10",
     "karma-sinon": "^1.0.4",
     "karma-source-map-support": "^1.0.0",
-    "metaljs": "^0.1.7",
-    "metal-tasks": "metal/metal-tasks",
+    "metal": "metal/metal.js#master",
+    "metal-tasks": "metal/metal-tasks#master",
     "mocha": "^2.2.5"
   }
 }

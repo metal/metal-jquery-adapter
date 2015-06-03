@@ -1,7 +1,7 @@
 'use strict';
 
-import dom from 'bower:metaljs/src/dom/dom';
-import Component from 'bower:metaljs/src/component/Component';
+import dom from 'bower:metal/src/dom/dom';
+import Component from 'bower:metal/src/component/Component';
 import JQueryAdapter from '../src/JQueryAdapter';
 
 describe('JQueryAdapter', function() {

@@ -5,11 +5,11 @@
   "description": "A module that can create jQuery plugins for Metal.js components.",
   "keywords": [
     "jquery",
-    "metaljs",
+    "metal",
     "plugin"
   ],
   "dependencies": {
-    "metaljs": "liferay/metal.js#master",
+    "metal": "metal/metal.js#master",
     "jquery": "~2.1.4"
   }
 }

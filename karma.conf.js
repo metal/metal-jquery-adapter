@@ -1,8 +1,8 @@
 var isparta = require('isparta');
-var metaljs = require('metaljs');
+var metal = require('metal');
 
 var babelOptions = {
-  resolveModuleSource: metaljs.renameAlias,
+  resolveModuleSource: metal.renameAlias,
   sourceMap: 'both'
 };
 
@@ -12,14 +12,14 @@ module.exports = function (config) {
 
     files: [
       'bower_components/jquery/dist/jquery.js',
-      'bower_components/metaljs/**/*.js',
+      'bower_components/metal/**/*.js',
       'src/**/*.js',
       'test/**/*.js'
     ],
 
     preprocessors: {
       'src/**/*.js': ['coverage', 'commonjs'],
-      'bower_components/metaljs/**/*.js': ['babel', 'commonjs'],
+      'bower_components/metal/**/*.js': ['babel', 'commonjs'],
       'test/**/*.js': ['babel', 'commonjs']
     },
 
