@@ -8,27 +8,27 @@ import core from 'bower:metaljs/src/core';
  * @type {Object}
  */
 var JQueryAdapter = {
-  /**
-   * Registers a Metal.js component as a jQuery plugin with the given name.
-   * @param {string} name The name of the plugin that should be registered.
-   * @param {!Function(Object)} Ctor The constructor of the Metal.js component.
-   */
-  register(name, Ctor) {
-    if (!$) {
-      throw new Error('jQuery needs to be included in the page for JQueryAdapter to work.');
-    }
-    if (!core.isString(name)) {
-      throw new Error('The name string is required for registering a plugin');
-    }
-    if (!core.isFunction(Ctor)) {
-      throw new Error('The constructor function is required for registering a plugin');
-    }
+	/**
+	 * Registers a Metal.js component as a jQuery plugin with the given name.
+	 * @param {string} name The name of the plugin that should be registered.
+	 * @param {!Function(Object)} Ctor The constructor of the Metal.js component.
+	 */
+	register(name, Ctor) {
+		if (!$) {
+			throw new Error('jQuery needs to be included in the page for JQueryAdapter to work.');
+		}
+		if (!core.isString(name)) {
+			throw new Error('The name string is required for registering a plugin');
+		}
+		if (!core.isFunction(Ctor)) {
+			throw new Error('The constructor function is required for registering a plugin');
+		}
 
-    $.fn[name] = function(configOrMethodName) {
-      var args = Array.prototype.slice.call(arguments, 1);
-      return handlePluginCall(name, Ctor, this, configOrMethodName, args);
-    };
-  }
+		$.fn[name] = function(configOrMethodName) {
+			var args = Array.prototype.slice.call(arguments, 1);
+			return handlePluginCall(name, Ctor, this, configOrMethodName, args);
+		};
+	}
 };
 
 /**
@@ -39,16 +39,16 @@ var JQueryAdapter = {
  * @return {*} The return value of the called method.
  */
 function callMethod(name, element, methodName, args) {
-  var fullName = getPluginFullName(name);
-  var instance = element.data(fullName);
-  if (!instance) {
-    throw new Error('Tried to call method ' + methodName + ' on ' + name + ' plugin' +
-      'without initialing it first.');
-  }
-  if (!isValidMethod(instance, methodName)) {
-    throw new Error('Plugin ' + name + ' has no method called ' + methodName);
-  }
-  return instance[methodName].apply(instance, args);
+	var fullName = getPluginFullName(name);
+	var instance = element.data(fullName);
+	if (!instance) {
+		throw new Error('Tried to call method ' + methodName + ' on ' + name + ' plugin' +
+			'without initialing it first.');
+	}
+	if (!isValidMethod(instance, methodName)) {
+		throw new Error('Plugin ' + name + ' has no method called ' + methodName);
+	}
+	return instance[methodName].apply(instance, args);
 }
 
 /**
@@ -60,18 +60,18 @@ function callMethod(name, element, methodName, args) {
  * @param {Object} config A config object to be passed to the component instance.
  */
 function createOrUpdateInstance(name, Ctor, element, config) {
-  var fullName = getPluginFullName(name);
-  var instance = element.data(fullName);
-  config = $.extend({}, config, {
-    element: element[0]
-  });
-  if (instance) {
-    instance.setAttrs(config);
-  } else {
-    instance = new Ctor(config).render();
-    instance.on('*', onMetalEvent.bind(null, name, element));
-    element.data(fullName, instance);
-  }
+	var fullName = getPluginFullName(name);
+	var instance = element.data(fullName);
+	config = $.extend({}, config, {
+		element: element[0]
+	});
+	if (instance) {
+		instance.setAttrs(config);
+	} else {
+		instance = new Ctor(config).render();
+		instance.on('*', onMetalEvent.bind(null, name, element));
+		element.data(fullName, instance);
+	}
 }
 
 /**
@@ -80,7 +80,7 @@ function createOrUpdateInstance(name, Ctor, element, config) {
  * @return {string}
  */
 function getPluginFullName(name) {
-  return 'metal-' + name;
+	return 'metal-' + name;
 }
 
 /**
@@ -95,14 +95,14 @@ function getPluginFullName(name) {
  * @param {Array} args All other arguments that were passed to the plugin call.
  */
 function handlePluginCall(name, Ctor, collection, configOrMethodName, args) {
-  if (core.isString(configOrMethodName)) {
-    return callMethod(name, $(collection[0]), configOrMethodName, args);
-  } else {
-    collection.each(function() {
-      createOrUpdateInstance(name, Ctor, $(this), configOrMethodName);
-    });
-  }
-  return collection;
+	if (core.isString(configOrMethodName)) {
+		return callMethod(name, $(collection[0]), configOrMethodName, args);
+	} else {
+		collection.each(function() {
+			createOrUpdateInstance(name, Ctor, $(this), configOrMethodName);
+		});
+	}
+	return collection;
 }
 
 /**
@@ -113,9 +113,9 @@ function handlePluginCall(name, Ctor, collection, configOrMethodName, args) {
  * @return {boolean}
  */
 function isValidMethod(instance, methodName) {
-  return core.isFunction(instance[methodName]) &&
-    methodName[0] !== '_' &&
-    methodName[methodName.length - 1] !== '_';
+	return core.isFunction(instance[methodName]) &&
+		methodName[0] !== '_' &&
+		methodName[methodName.length - 1] !== '_';
 }
 
 /**
@@ -129,8 +129,8 @@ function isValidMethod(instance, methodName) {
  *   event.
  */
 function onMetalEvent(name, element, eventType, eventData) {
-  var fullName = getPluginFullName(name);
-  element.trigger(fullName + ':' + eventType, eventData);
+	var fullName = getPluginFullName(name);
+	element.trigger(fullName + ':' + eventType, eventData);
 }
 
 export default JQueryAdapter;
