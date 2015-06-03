@@ -4,20 +4,17 @@
   "description": "A module that can create jQuery plugins for Metal.js components.",
   "keywords": [
     "jquery",
+    "metal",
     "metaljs",
     "plugin"
   ],
-  "repository": "mairatma/metal-jquery-adapter",
+  "repository": "metal/metal-jquery-adapter",
   "dependencies": {
-    "metaljs": "liferay/metal#master"
   },
   "devDependencies": {
     "chai": "^2.3.0",
     "gulp": "^3.8.11",
-    "gulp-esformatter": "^4.0.0",
-    "gulp-jshint": "^1.11.0",
     "isparta": "^3.0.3",
-    "jshint-stylish": "^2.0.0",
     "karma": "^0.12.33",
     "karma-babel-preprocessor": "^5.2.1",
     "karma-chai": "^0.1.0",
@@ -27,6 +24,8 @@
     "karma-mocha": "^0.1.10",
     "karma-sinon": "^1.0.4",
     "karma-source-map-support": "^1.0.0",
+    "metaljs": "^0.1.7",
+    "metal-tasks": "metal/metal-tasks",
     "mocha": "^2.2.5"
   }
 }

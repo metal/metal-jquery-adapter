@@ -9,7 +9,7 @@
     "plugin"
   ],
   "dependencies": {
-    "metaljs": "mairatma/metal#events",
+    "metaljs": "liferay/metal.js#master",
     "jquery": "~2.1.4"
   }
 }
