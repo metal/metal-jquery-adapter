@@ -13,6 +13,7 @@
   "devDependencies": {
     "chai": "^2.3.0",
     "gulp": "^3.8.11",
+    "gulp-metal": "^0.1.1",
     "isparta": "^3.0.3",
     "karma": "^0.12.33",
     "karma-babel-preprocessor": "^5.2.1",
@@ -23,8 +24,6 @@
     "karma-mocha": "^0.1.10",
     "karma-sinon": "^1.0.4",
     "karma-source-map-support": "^1.0.0",
-    "metal": "metal/metal.js#master",
-    "metal-tasks": "metal/metal-tasks#master",
     "mocha": "^2.2.5"
   }
 }

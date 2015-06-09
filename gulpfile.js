@@ -1,8 +1,7 @@
 'use strict';
 
-var metalTasks = require('metal-tasks');
+var metal = require('gulp-metal');
 
-metalTasks({
-	bundleFileName: 'jquery-adapter.js',
-	skipCssBuild: true
+metal.registerTasks({
+	bundleFileName: 'jquery-adapter.js'
 });
