@@ -5,7 +5,7 @@ import core from 'bower:metal/src/core';
 /**
  * Acts as a bridge between Metal.js and jQuery, allowing Metal.js components to
  * be used as jQuery plugins.
- * @type {Object}
+ * @type {!Object}
  */
 var JQueryAdapter = {
 	/**
@@ -35,7 +35,8 @@ var JQueryAdapter = {
  * Calls a method on the plugin instance for the given element.
  * @param {string} name The name of the plugin.
  * @param {!jQuery} element A jQuery collection with a single element.
- * @param {[type]} methodName [description]
+ * @param {string} methodName The name of the method to be called.
+ * @param {Array} args The arguments to call the method with.
  * @return {*} The return value of the called method.
  */
 function callMethod(name, element, methodName, args) {
