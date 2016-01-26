@@ -1,7 +1,5 @@
 'use strict';
 
-import core from 'npm:metal/src/core';
-
 /**
  * Acts as a bridge between Metal.js and jQuery, allowing Metal.js components to
  * be used as jQuery plugins.
@@ -17,10 +15,10 @@ var JQueryAdapter = {
 		if (!$) {
 			throw new Error('jQuery needs to be included in the page for JQueryAdapter to work.');
 		}
-		if (!core.isString(name)) {
+		if (typeof name !== 'string') {
 			throw new Error('The name string is required for registering a plugin');
 		}
-		if (!core.isFunction(Ctor)) {
+		if (typeof Ctor !== 'function') {
 			throw new Error('The constructor function is required for registering a plugin');
 		}
 
@@ -96,7 +94,7 @@ function getPluginFullName(name) {
  * @param {Array} args All other arguments that were passed to the plugin call.
  */
 function handlePluginCall(name, Ctor, collection, configOrMethodName, args) {
-	if (core.isString(configOrMethodName)) {
+	if (typeof configOrMethodName === 'string') {
 		return callMethod(name, $(collection[0]), configOrMethodName, args);
 	} else {
 		collection.each(function() {
@@ -114,7 +112,7 @@ function handlePluginCall(name, Ctor, collection, configOrMethodName, args) {
  * @return {boolean}
  */
 function isValidMethod(instance, methodName) {
-	return core.isFunction(instance[methodName]) &&
+	return typeof instance[methodName] === 'function' &&
 		methodName[0] !== '_' &&
 		methodName[methodName.length - 1] !== '_';
 }
