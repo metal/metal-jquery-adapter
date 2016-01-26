@@ -1,6 +1,6 @@
 'use strict';
 
-import core from 'bower:metal/src/core';
+import core from 'npm:metal/src/core';
 
 /**
  * Acts as a bridge between Metal.js and jQuery, allowing Metal.js components to

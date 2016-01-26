@@ -8,8 +8,7 @@
     "metal",
     "plugin"
   ],
-  "dependencies": {
-    "jquery": "~2.1.4",
-    "metal": "metal/metal.js#master"
+  "devDependencies": {
+    "jquery": "~2.1.4"
   }
 }

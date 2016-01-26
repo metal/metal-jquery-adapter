@@ -19,5 +19,8 @@
     "gulp": "^3.8.11",
     "gulp-metal": "^0.7.0",
     "metal-karma-config": "^0.1.0"
+  },
+  "dependencies": {
+    "metal": "github:metal/metal.js#master"
   }
 }
