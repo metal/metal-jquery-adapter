@@ -1,7 +1,7 @@
 'use strict';
 
-import dom from 'npm:metal/src/dom/dom';
-import Component from 'npm:metal/src/component/Component';
+import dom from 'metal/src/dom/dom';
+import Component from 'metal/src/component/Component';
 import JQueryAdapter from '../src/JQueryAdapter';
 
 describe('JQueryAdapter', function() {
