@@ -10,6 +10,11 @@
   "scripts": {
     "test": "gulp test"
   },
+  "main": "src/JQueryAdapter.js",
+  "files": [
+    "src",
+    "test"
+  ],
   "keywords": [
     "jquery",
     "metal",
@@ -18,7 +23,8 @@
   "devDependencies": {
     "gulp": "^3.8.11",
     "gulp-metal": "^0.9.0",
-    "metal": "github:metal/metal.js#master",
+    "metal-component": "metal/metal-component#master",
+    "metal-dom": "metal/metal-dom#master",
     "metal-karma-config": "^1.0.0"
   }
 }
