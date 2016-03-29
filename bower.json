@@ -1,6 +1,6 @@
 {
   "name": "metal-jquery-adapter",
-  "version": "0.0.1",
+  "version": "1.0.0-rc",
   "main": "src/JQueryPlugin.js",
   "description": "A module that can create jQuery plugins for Metal.js components.",
   "keywords": [
