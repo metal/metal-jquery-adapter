@@ -63,7 +63,7 @@ describe('JQueryAdapter', function() {
 
 	it('should pass options as the component config when instantiating it', function() {
 		var TestComponent = createComponentClass();
-		TestComponent.ATTRS = {
+		TestComponent.STATE = {
 			foo: {
 				value: ''
 			}
@@ -80,9 +80,9 @@ describe('JQueryAdapter', function() {
 		assert.strictEqual('foo', instance.foo);
 	});
 
-	it('should update component attrs when calling plugin after first time', function() {
+	it('should update component state when calling plugin after first time', function() {
 		var TestComponent = createComponentClass();
-		TestComponent.ATTRS = {
+		TestComponent.STATE = {
 			foo: {
 				value: ''
 			}

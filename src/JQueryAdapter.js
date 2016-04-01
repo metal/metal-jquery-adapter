@@ -65,7 +65,7 @@ function createOrUpdateInstance(name, Ctor, element, config) {
 		element: element[0]
 	});
 	if (instance) {
-		instance.setAttrs(config);
+		instance.setState(config);
 	} else {
 		instance = new Ctor(config).render();
 		instance.on('*', onMetalEvent.bind(null, name, element));
