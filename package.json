@@ -23,7 +23,7 @@
   "devDependencies": {
     "gulp": "^3.8.11",
     "gulp-metal": "^1.0.0",
-    "metal-component": "^1.0.0-rc.2",
+    "metal-component": "^1.0.0-rc.3",
     "metal-dom": "^1.0.0-rc.2",
     "metal-karma-config": "^2.0.0"
   }
