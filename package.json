@@ -8,10 +8,14 @@
     "node": ">=0.12.0"
   },
   "scripts": {
+    "compile": "babel --presets metal -d lib/ src/",
+    "prepublish": "npm run compile",
     "test": "gulp test"
   },
-  "main": "src/JQueryAdapter.js",
+  "jsnext:main": "src/JQueryAdapter.js",
+  "main": "lib/JQueryAdapter.js",
   "files": [
+    "lib",
     "src",
     "test"
   ],
@@ -21,6 +25,8 @@
     "plugin"
   ],
   "devDependencies": {
+    "babel-cli": "^6.4.5",
+    "babel-preset-metal": "^4.0.0",
     "gulp": "^3.8.11",
     "gulp-metal": "^1.0.0",
     "metal-component": "^1.0.0-rc.3",
