@@ -1,6 +1,6 @@
 {
   "name": "metal-jquery-adapter",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "description": "A module that can create jQuery plugins for Metal.js components.",
   "license": "BSD",
   "repository": "metal/metal-jquery-adapter",
